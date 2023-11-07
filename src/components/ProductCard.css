@@ -1,0 +1,83 @@
+.title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  margin: 20px;
+  width: 200px;
+  border: 5px solid transparent;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: border-color 0.5s;
+}
+
+.product-card:hover {
+  border-color: red;
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-name {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.details-button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin: 0 auto;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.modal {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+  max-height: 400px;
+  overflow: auto;
+  padding: 20px;
+}
+
+.modal-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.close-button {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Añade cualquier otra regla CSS necesaria para tu diseño */

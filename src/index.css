@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/****** Item  box *********/
+.item-box {
+  background-color: #fff;
+  margin: 10px;
+  padding: 20px;
+  width: 110px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
