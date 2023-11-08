@@ -24,20 +24,22 @@ class ShowInvoiceDetails extends Component {
   };
 
   peticionGet = () => {
-    const { match } = this.props; // Obtener el ID de la factura desde this.props.match.params
-    const facturaId = match.params.id;
     axios
-      .get(`${facturaDetalleUrl}?facturaId=${facturaId}`) // Ajustar la URL para obtener detalles de la factura por su ID
+      .get(facturaDetalleUrl)
       .then((response) => {
-        const newDetailId = response.data[0].id_venta_detalle;
-        const newDetail = response.data.find((detail) => detail.id_venta_detalle === newDetailId);
-        this.setState({ invoiceDetails: newDetail ? [newDetail] : [] });
+        // Verificar si se ha agregado un nuevo registro
+        if (this.state.invoiceDetails.length > 0) {
+          const newDetailId = this.state.invoiceDetails[0].id_venta_detalle; // Obtener el ID del nuevo registro
+          const newDetail = response.data.find((detail) => detail.id_venta_detalle === newDetailId); // Encontrar el nuevo registro en la respuesta de la API
+          this.setState({ invoiceDetails: newDetail ? [newDetail] : [] }); // Actualizar invoiceDetails con el nuevo registro o establecerlo como una lista vacía si no se encuentra el nuevo registro
+        } else {
+          this.setState({ invoiceDetails: [] }); // Si no hay un nuevo registro, establecer invoiceDetails como una lista vacía
+        }
       })
       .catch((error) => {
         console.log(error.message);
       });
   };
-
   
   peticionPost = async () => {
     delete this.state.form.id_venta_detalle;
@@ -118,9 +120,7 @@ class ShowInvoiceDetails extends Component {
 
   componentDidMount() {
     this.peticionGet();
-    this.loadProducts(); 
-   // Cargar los productos cuando se monta el componente
-  
+    this.loadProducts(); // Cargar los productos cuando se monta el componente
   }
 
   // Agregar función para cargar los productos
@@ -135,7 +135,6 @@ class ShowInvoiceDetails extends Component {
       });
   }
 
-  
   render() {
     const { form } = this.state;
     return (

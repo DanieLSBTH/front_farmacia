@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import { show_alerta } from '../functions';
@@ -16,7 +15,6 @@ class ShowInvoices extends Component {
     empleados: [],
     modalInsertar: false,
     modalEliminar: false,
-    
     form: {
       id_factura: '',
       fecha: '',
@@ -80,10 +78,6 @@ class ShowInvoices extends Component {
       console.log(error.message);
     })
   }
- // En lugar de usar useNavigate, usa this.props.history.push()
-verDetalleFactura = (factura) => {
-  this.props.history.push(`/invoicedetails/${factura.id_factura}`);
-};
 
   modalInsertar = () => {
     this.setState({ modalInsertar: !this.state.modalInsertar });
@@ -145,14 +139,9 @@ verDetalleFactura = (factura) => {
                   <td>{factura.id_cliente}</td>
                   <td>{factura.id_empleado}</td>
                   <td>
-                  <Link to={`/invoicedetails/${factura.id_factura}`} className="btn btn-info">
-          Ver Detalle
-        </Link>
                     <button className="btn btn-primary" onClick={() => { this.seleccionarFactura(factura); this.modalInsertar() }}>Editar</button>
                     {"   "}
                     <button className="btn btn-danger" onClick={() => { this.seleccionarFactura(factura); this.setState({ modalEliminar: true }) }}>Eliminar</button>
-               
-        
                   </td>
                 </tr>
               )

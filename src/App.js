@@ -50,9 +50,8 @@ function App() {
           <Route path="/employees/*" element={<ShowEmployees />} /> {/* Agrega la ruta de Clientes */}
           <Route path="/providers/*" element={<ShowProviders />} /> {/* Agrega la ruta de Clientes */}
           <Route path="/invoice/*" element={<ShowInvoices />} /> {/* Agrega la ruta de Clientes */}
-          <Route path="/invoicedetails/:id" element={<ShowInvoiceDetails />} />
-
-          <Route path="/showddetails/*" element={<ShowdDetails />} /> {/* Agrega la ruta de Clientes */}
+         <Route path="/invoicedetails/*" element={<ShowInvoiceDetails />} /> {/* Agrega la ruta de Clientes */}
+         <Route path="/showddetails/*" element={<ShowdDetails />} /> {/* Agrega la ruta de Clientes */}
          
         </Routes>
       </div>
